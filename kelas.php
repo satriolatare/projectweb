@@ -23,7 +23,7 @@ $result = $conn->query("SELECT * FROM kelas");
         <?php while ($row = $result->fetch_assoc()): ?>
             <tr align="center">
                 <td>
-                    <?= $row['nama_kelas'] ?></a>
+                    <?= $row['nama_kelas'] ?>
                 </td>
                 <td><a href="edit.php?id=<?= $row['id_kelas'] ?>" class="btn btn-warning">Edit</a>
                     <a href="hapus.php?id=<?= $row['id_kelas'] ?>" class="btn btn-danger"
