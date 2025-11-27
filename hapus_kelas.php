@@ -1,36 +1,17 @@
 <?php
 include 'config/koneksi.php';
 
-$id_kelas = filter_input(INPUT_GET, 'id_kelas', FILTER_VALIDATE_INT);
+if (isset($_GET['id'])) {
+    $id_kelas = $_GET['id'];
+    $sql = "DELETE FROM kelas WHERE id_kelas=$id_kelas";
 
-if ($id_kelas === null || $id_kelas === false) {
-	// id_kelas tidak valid atau tidak diberikan
-	header('Location: kelas.php?success=0');
-	exit;
-}
-
-$stmt = $conn->prepare('DELETE FROM kelas WHERE id_kelas = ?');
-if (!$stmt) {
-	header('Location: kelas.php?success=0');
-	exit;
-}
-
-$stmt->bind_param('i', $id_kelas);
-if (!$stmt->execute()) {
-	$stmt->close();
-	header('Location: kelas.php?success=0');
-	exit;
-}
-
-if ($stmt->affected_rows > 0) {
-	header('Location: kelas.php?success=1');
+    if ($conn->query($sql) === true) {
+        header("Location:kelas.php?success=1");
+    } else {
+        header("Location:kelas.php?success=0");
+    }
 } else {
-	// Query berhasil tetapi tidak ada baris yang dihapus
-	header('Location: kelas.php?success=0');
+    header("Location:kelas.php");
 }
-
-$stmt->close();
-$conn->close();
-exit;
 
 ?>

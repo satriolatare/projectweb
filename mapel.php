@@ -22,11 +22,9 @@ $result = $conn->query("SELECT * FROM mapel");
         <?php while ($row = $result->fetch_assoc()): ?>
 
             <tr align="center">
-                <td>
-                    <?= $row['nama_mapel'] ?>
-                </td>
-                <td><a href="edit.php?id=<?= $row['id_mapel'] ?>" class="btn btn-warning">Edit</a>
-                    <a href="hapus.php?id=<?= $row['id_mapel'] ?>" class="btn btn-danger"
+                <td><?= $row['nama_mapel'] ?></td>
+                <td><a href="edit_mapel.php?id=<?= $row['id_mapel'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="hapus_mapel.php?id=<?= $row['id_mapel'] ?>" class="btn btn-danger"
                         onclick="return confirm('apakah anda yakin?')">Hapus</a>
                 </td>
             </tr>
@@ -40,7 +38,7 @@ $result = $conn->query("SELECT * FROM mapel");
 </table>
 
 <div>
-    <a class="btn btn-primary" href="form.php">tambah data</a>
+    <a class="btn btn-primary" href="form_mapel.php">tambah data</a>
 </div>
 
 <?php include 'includes/footer.php' ?>

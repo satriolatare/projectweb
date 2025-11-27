@@ -1,8 +1,8 @@
 <?php include 'includes/header.php'; ?>
 <?php
-$id_kelas = $_GET['id'];
-if (isset($id_kelas)) {
-    $sql = "SELECT * FROM kelas WHERE id_kelas='$id_kelas'";
+$id_mapel = $_GET['id'];
+if (isset($id_mapel)) {
+    $sql = "SELECT * FROM mapel WHERE id_mapel='$id_mapel'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 0) {
@@ -14,14 +14,14 @@ if (isset($id_kelas)) {
 }
 if ($_POST) {
     
-    $nama_kelas = $_POST["nama_kelas"];
+    $nama_mapel = $_POST["nama_mapel"];
 
-    $sql = "UPDATE kelas SET nama_kelas='$nama_kelas' WHERE id_kelas=$id_kelas";
+    $sql = "UPDATE mapel SET nama_mapel='$nama_mapel' WHERE id_mapel=$id_mapel";
 
     if ($conn->query($sql) === true) {
-        header("location: kelas.php? success=1");
+        header("location: mapel.php? success=1");
     } else {
-        header("location: kelas.php? success=0");
+        header("location: mapel.php? success=0");
     }
 }
 
@@ -32,8 +32,8 @@ if ($_POST) {
         <div class="row">
 
 				<div class="col-md-4">
-					<label>KELAS</label>
-					<input type="text" name="nama_kelas" id="kelas" class="form-control" value="<?= $nilai['nama_kelas'] ?>">
+					<label>MATA PELAJARAN</label>
+					<input type="text" name="nama_mapel" id="mapel" class="form-control" value="<?= $nilai['nama_mapel'] ?>">
 				</div>
 
         <div class="row mt-5">

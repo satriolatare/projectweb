@@ -22,11 +22,9 @@ $result = $conn->query("SELECT * FROM kelas");
     <?php if ($result && $result->num_rows > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
             <tr align="center">
-                <td>
-                    <?= $row['nama_kelas'] ?>
-                </td>
-                <td><a href="edit_kelas.php?id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-warning">Edit</a>
-                    <a href="hapus_kelas.php?id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger"
+                <td><?= $row['nama_kelas'] ?></td>
+                <td><a href="edit_kelas.php?id=<?= $row['id_kelas'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="hapus_kelas.php?id=<?= $row['id_kelas'] ?>" class="btn btn-danger"
                         onclick="return confirm('apakah anda yakin?')">Hapus</a>
                 </td>
             </tr>

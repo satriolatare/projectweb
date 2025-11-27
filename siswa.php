@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
 <?php
-$result = $conn->query("SELECT siswa. *, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
+$result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
 ?>
 
 
@@ -30,8 +30,8 @@ $result = $conn->query("SELECT siswa. *, kelas.nama_kelas FROM siswa INNER JOIN 
                 <td><?= $row['nisn'] ?></td>
                 <td><?= $row['nama_kelas'] ?></td>
                 <td>
-                    <a href="edit.php?id=<?= $row['id_siswa'] ?>" class="btn btn-warning">Edit</a>
-                    <a href="hapus.php?id=<?= $row['id_siswa'] ?>" class="btn btn-danger"
+                    <a href="edit_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="hapus_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-danger"
                         onclick="return confirm('apakah anda yakin?')">Hapus</a>
                 </td>
             </tr>
@@ -45,7 +45,7 @@ $result = $conn->query("SELECT siswa. *, kelas.nama_kelas FROM siswa INNER JOIN 
 </table>
 
 <div>
-    <a class="btn btn-primary" href="form.php">tambah data</a>
+    <a class="btn btn-primary" href="form_siswa.php">tambah data</a>
 </div>
 
 <?php include 'includes/footer.php' ?>
