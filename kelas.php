@@ -25,8 +25,8 @@ $result = $conn->query("SELECT * FROM kelas");
                 <td>
                     <?= $row['nama_kelas'] ?>
                 </td>
-                <td><a href="edit.php?id=<?= $row['id_kelas'] ?>" class="btn btn-warning">Edit</a>
-                    <a href="hapus.php?id=<?= $row['id_kelas'] ?>" class="btn btn-danger"
+                <td><a href="edit_kelas.php?id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="hapus_kelas.php?id_kelas=<?= $row['id_kelas'] ?>" class="btn btn-danger"
                         onclick="return confirm('apakah anda yakin?')">Hapus</a>
                 </td>
             </tr>
