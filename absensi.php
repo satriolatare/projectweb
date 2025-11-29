@@ -14,7 +14,7 @@ $result = $conn->query("SELECT absen . *, siswa.nama_siswa, mapel.nama_mapel, ke
 
 
 <table class="table">
-	<tr align="center">
+	<tr align="center" class="table-secondary">
 		<td>Nama Siswa</td>
 		<td>Kelas</td>
 		<td>Mata Pelajaran</td>

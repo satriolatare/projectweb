@@ -14,10 +14,10 @@ $result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN k
 
 
 <table class="table">
-    <tr align="center">
-        <td>NAMA</td>
+    <tr align="center" class="table-secondary">
+        <td>Nama</td>
         <td>NISN</td>
-        <td>KELAS</td>
+        <td>Kelas</td>
         <td>Action</td>
 
     </tr>

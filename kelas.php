@@ -13,7 +13,7 @@ $result = $conn->query("SELECT * FROM kelas");
 
 
 <table class="table">
-    <tr align="center">
+    <tr align="center" class="table-secondary">
         <td>Kelas</td>
         <td>Action</td>
 

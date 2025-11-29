@@ -14,7 +14,7 @@ $result = $conn->query("SELECT * FROM mapel");
 
 
 <table class="table">
-    <tr align="center">
+    <tr align="center" class="table-secondary">
         <td>Mata Pelajaran</td>
         <td>Action</td>
     </tr>
