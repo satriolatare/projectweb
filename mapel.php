@@ -7,7 +7,6 @@ $result = $conn->query("SELECT * FROM mapel");
 
 
 <br>
-<h3>Selamat Datang </h3>
 <h1 align="center" style="background-color: grey;  border-radius: 20px; ">Mata Pelajaran</h1>
 <br>
 

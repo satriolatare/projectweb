@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
 <?php
-$result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
+$result = $conn->query("SELECT * FROM siswa");
 ?>
 
 
@@ -17,7 +17,6 @@ $result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN k
     <tr align="center" class="table-secondary">
         <td>Nama</td>
         <td>NISN</td>
-        <td>Kelas</td>
         <td>Action</td>
 
     </tr>
@@ -28,7 +27,7 @@ $result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN k
 
                 <td><?= $row['nama_siswa'] ?></td>
                 <td><?= $row['nisn'] ?></td>
-                <td><?= $row['nama_kelas'] ?></td>
+                
                 <td>
                     <a href="edit_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-warning">Edit</a>
                     <a href="hapus_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-danger"
