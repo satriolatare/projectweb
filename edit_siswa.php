@@ -47,7 +47,7 @@ if ($_POST) {
                 <label>NISN</label>
                 <input type="text" name="nisn" id="nisn" class="form-control" value="<?= $nilai['nisn'] ?>">
             </div>
-        </div>
+        
 
         <div class="col-md-4">
             <label>KELAS</label>
@@ -58,6 +58,7 @@ if ($_POST) {
                     </option>
                 <?php endwhile ?>
             </select>
+        </div>
         </div>
 
 

@@ -8,7 +8,7 @@ $result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN k
 
 <br>
 
-<h1 align="center" style="background-color: grey;  border-radius: 20px; ">ABSEN SISWA</h1>
+<h1 align="center" style="background-color: grey;  border-radius: 20px; ">Data Siswa</h1>
 <br>
 
 
