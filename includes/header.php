@@ -55,16 +55,16 @@ border-bottom-right-radius: 15px;">
 
         <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
 
-          <li class="navbar-brand d-flex align-items-center fw-bold text-white">
+          <li class="navbar-brand fw-bold text-white">
             <a class="nav-link <?= $page == 'dashboard.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
-              href="dashboard.php">
-              Dashboard <i class="bi bi-bookmark-dash"></i>
+              href="dashboard.php"  style="font-size: 14px;">
+              <i class="bi bi-bookmark-dash-fill me-2"  style="font-size: 14px;"></i>Dashboard
             </a>
           </li>
 
 
 
-          <li class="navbar-brand d-flex align-items-center fw-bold text-white">
+          <li class="navbar-brand fw-bold text-white">
             <a class="nav-link <?= in_array($page, [
               'master.php',
               'mapel.php',
@@ -79,8 +79,8 @@ border-bottom-right-radius: 15px;">
               'absensi.php',
               'form_absensi.php',
               'edit_absensi.php'
-            ]) ? 'nav-active-box text-dark' : 'text-white' ?>" href="master.php">
-              Data Master <i class="bi bi-database"></i>
+            ]) ? 'nav-active-box text-dark' : 'text-white' ?>" href="master.php"  style="font-size: 14px;">
+              <i class="bi bi-database-fill  me-2" style="font-size: 14px;"></i>Data Master
             </a>
           </li>
 
