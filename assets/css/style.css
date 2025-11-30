@@ -25,11 +25,13 @@ table.table-bordered th {
 }
 
 .nav-active-box {
-    background: white !important;
-    color: grey !important;
+    background-color: rgb(230, 235, 235) !important;
     padding: 6px 14px !important;
-    border-radius: 8px;
+    border-radius: 8px !important;
+    display: inline-block !important;
 }
+
+
 
 
 
