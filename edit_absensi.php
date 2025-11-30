@@ -46,7 +46,7 @@ if ($_POST) {
             </div>
 
             <div class="col-md-4">
-                <label>KELAS</label>
+                <label>Kelas</label>
                 <select class="form-control" name="id_kelas" id="id_kelas">
                     <?php while ($row = $kelas->fetch_assoc()): ?>
                         <option value="<?= $row['id_kelas'] ?>" <?= ($row['id_kelas'] == $nilai['id_kelas']) ? 'selected' : '' ?>><?= $row['nama_kelas'] ?></option>

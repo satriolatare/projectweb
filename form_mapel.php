@@ -5,7 +5,7 @@
     <form action="simpan_mapel.php" method="POST">
 
         <div class="col-md-4">
-				<label>MATA PELAJARAN</label>
+				<label>Mata Pelajaran</label>
 				<input type="text" name="nama_mapel" id="mapel" class="form-control">
 			</div>
 

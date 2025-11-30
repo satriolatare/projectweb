@@ -5,7 +5,7 @@
     <form action="simpan_kelas.php" method="POST">
 
         <div class="col-md-4">
-				<label>KELAS</label>
+				<label>Kelas</label>
 				<input type="text" name="nama_kelas" id="kelas" class="form-control">
 			</div>
 
