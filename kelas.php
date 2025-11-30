@@ -31,7 +31,7 @@ $result = $conn->query("SELECT * FROM kelas");
     </table>
 
     <div>
-        <a class="btn btn-primary" href="form_mapel.php">
+        <a class="btn btn-primary" href="form_kelas.php">
             Tambah Data <i class="bi bi-plus-lg"></i>
         </a>
     </div>

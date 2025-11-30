@@ -38,7 +38,7 @@ $result = $conn->query("SELECT * FROM siswa");
 
     <div>
 
-        <a class="btn btn-primary" href="form_mapel.php">
+        <a class="btn btn-primary" href="form_siswa.php">
             Tambah Data <i class="bi bi-plus-lg"></i>
         </a>
     </div>

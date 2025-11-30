@@ -41,7 +41,7 @@ $result = $conn->query("SELECT absen . *, siswa.nama_siswa, mapel.nama_mapel, ke
 	</table>
 
 	<div>
-		<a class="btn btn-primary" href="form_mapel.php">
+		<a class="btn btn-primary" href="form_absensi.php">
 			Tambah Data <i class="bi bi-plus-lg"></i>
 		</a>
 	</div>
