@@ -1,11 +1,11 @@
 <?php include 'config/koneksi.php';
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['email'])) {
-//     header('Location: login.php');
-//     exit();
-// }
-// ?>
+if (!isset($_SESSION['email'])) {
+  header('Location: login.php');
+  exit();
+}
+?>
 
 <!DOCTYPE html>
 <html>
