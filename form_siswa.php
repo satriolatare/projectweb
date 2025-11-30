@@ -6,7 +6,7 @@
         <div class="row">
 
         <div class="col-md-4">
-            <label>NAMA</label>
+            <label>Nama</label>
             <input type="text" name="nama_siswa" id="nama_siswa" class="form-control">
         </div>
         <div class="col-md-4">

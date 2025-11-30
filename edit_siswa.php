@@ -37,7 +37,7 @@ if ($_POST) {
         <div class="row">
 
             <div class="col-md-4">
-                <label>NAMA</label>
+                <label>Nama</label>
                 <input type="text" name="nama_siswa" id="id_siswa" class="form-control"
                     value="<?= $nilai['nama_siswa'] ?>">
             </div>

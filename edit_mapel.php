@@ -32,7 +32,7 @@ if ($_POST) {
         <div class="row">
 
 				<div class="col-md-4">
-					<label>MATA PELAJARAN</label>
+					<label>Mata Pelajaran</label>
 					<input type="text" name="nama_mapel" id="mapel" class="form-control" value="<?= $nilai['nama_mapel'] ?>">
 				</div>
 

@@ -19,7 +19,7 @@ $mapel = $conn->query("SELECT * FROM mapel");
             </div>
 
             <div class="col-md-4">
-                <label>KELAS</label>
+                <label>Kelas</label>
                 <select class="form-control" name="id_kelas" id="id_kelas">
                     <?php while ($row = $kelas->fetch_assoc()): ?>
                         <option value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
