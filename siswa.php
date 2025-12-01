@@ -1,13 +1,14 @@
 <?php include 'includes/header.php'; ?>
 
 <?php
-$result = $conn->query("SELECT * FROM siswa");
+$result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
 ?>
 
 <div class="mt-4">
     <table class="table table-bordered">
         <tr align="center" class="table-secondary">
             <th>Nama</th>
+            <th>Kelas</th>
             <th>NISN</th>
             <th>Action</th>
 
@@ -19,6 +20,7 @@ $result = $conn->query("SELECT * FROM siswa");
 
                     <td><?= $row['nama_siswa'] ?></td>
                     <td><?= $row['nisn'] ?></td>
+                    <td><?= $row['nama_kelas'] ?></td>
 
                     <td>
                         <a href="edit_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-warning"> <i
