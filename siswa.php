@@ -19,8 +19,8 @@ $result = $conn->query("SELECT siswa.*, kelas.nama_kelas FROM siswa INNER JOIN k
                 <tr align="center">
 
                     <td><?= $row['nama_siswa'] ?></td>
-                    <td><?= $row['nisn'] ?></td>
                     <td><?= $row['nama_kelas'] ?></td>
+                    <td><?= $row['nisn'] ?></td>
 
                     <td>
                         <a href="edit_siswa.php?id=<?= $row['id_siswa'] ?>" class="btn btn-warning"> <i
