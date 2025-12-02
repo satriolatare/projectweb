@@ -19,10 +19,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     margin-bottom: 25px;
 }
-table.table-bordered td,
-table.table-bordered th {
-    border: 1px solid #3b3a3a !important;
-}
+
 
 .nav-active-box {
     background-color: rgb(230, 235, 235) !important;
