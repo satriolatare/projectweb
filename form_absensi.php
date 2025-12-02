@@ -8,26 +8,19 @@ $mapel = $conn->query("SELECT * FROM mapel");
 <div class="container">
     <form action="simpan_absensi.php" method="POST">
         <div class="row">
-
-            <div class="col-md-4">
+            <div class="coll-md-4">
                 <label>Nama Siswa</label>
                 <select class="form-control" name="id_siswa" id="id_siswa">
-                    <?php while ($row = $siswa->fetch_assoc()): ?>
-                        <option value="<?= $row['id_siswa'] ?>"><?= $row['nama_siswa'] ?></option>
-                    <?php endwhile ?>
+                    <option value="">-- Pilih Siswa --</option>
+                    <?php
+                    $s = $conn->query("SELECT * FROM siswa");
+                    while ($row = $s->fetch_assoc()) {
+                        echo "<option value='" . $row['id_siswa'] . "'>" . $row['nama_siswa'] . "</option>";
+                    }
+                    ?>
                 </select>
             </div>
-
-            <div class="col-md-4">
-                <label>Kelas</label>
-                <select class="form-control" name="id_kelas" id="id_kelas">
-                    <?php while ($row = $kelas->fetch_assoc()): ?>
-                        <option value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
-                    <?php endwhile ?>
-                </select>
-            </div>
-
-            <div class="col-md-4">
+            <div class="coll-md-4">
                 <label>Mata Pelajaran</label>
                 <select class="form-control" name="id_mapel" id="id_mapel">
                     <?php while ($row = $mapel->fetch_assoc()): ?>
@@ -35,11 +28,11 @@ $mapel = $conn->query("SELECT * FROM mapel");
                     <?php endwhile ?>
                 </select>
             </div>
-            <div class="col-md-4">
+            <div class="coll-md-4">
                 <label>Tanggal</label>
                 <input type="date" name="tanggal" id="tanggal" class="form-control">
             </div>
-            <div class="col-md-4">
+            <div class="coll-md-4">
                 <label>Status</label>
                 <select class="form-control" name="status" id="status">
                     <option value="Hadir">Hadir</option>
@@ -48,7 +41,6 @@ $mapel = $conn->query("SELECT * FROM mapel");
                     <option value="Alpa">Alpa</option>
                 </select>
             </div>
-
         </div>
         <div class="row mt-5">
             <button type="submit" class="btn btn-success">Simpan</button>
