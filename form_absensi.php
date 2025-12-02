@@ -11,7 +11,7 @@ $mapel = $conn->query("SELECT * FROM mapel");
             <div class="coll-md-4">
                 <label>Nama Siswa</label>
                 <select class="form-control" name="id_siswa" id="id_siswa">
-                    <option value="">-- Pilih Siswa --</option>
+                    <option>-- Pilih Siswa --</option>
                     <?php
                     $s = $conn->query("SELECT * FROM siswa");
                     while ($row = $s->fetch_assoc()) {

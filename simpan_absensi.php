@@ -8,12 +8,12 @@ if ($_POST) {
     $tanggal = $_POST["tanggal"];
     $status = $_POST["status"];
 
-    // --- AMBIL KELAS OTOMATIS BERDASARKAN SISWA ---
+    //AMBIL KELAS OTOMATIS BERDASARKAN SISWA
     $q = $conn->query("SELECT id_kelas FROM siswa WHERE id_siswa = '$id_siswa'");
     $data = $q->fetch_assoc();
-    $id_kelas = $data["id_kelas"];  // <-- KELAS DIDAPAT OTOMATIS
+    $id_kelas = $data["id_kelas"];  
 
-    // SIMPAN ABSENSI
+
     $sql = "INSERT INTO absen (id_siswa, id_kelas, id_mapel, tanggal, status) 
             VALUES ('$id_siswa', '$id_kelas', '$id_mapel', '$tanggal', '$status')";
 
