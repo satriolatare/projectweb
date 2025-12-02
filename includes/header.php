@@ -56,33 +56,38 @@ border-bottom-right-radius: 15px;">
         <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
 
           <li class="navbar-brand fw-bold text-white">
-            <a class="nav-link <?= $page == 'dashboard.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
-              href="dashboard.php"  style="font-size: 14px;">
-              <i class="bi bi-bookmark-dash-fill me-2"  style="font-size: 14px;"></i>Dashboard
+            <a class="nav-link <?= in_array($page, ['dashboard.php', 'dashboard_siswa.php']) ? 'nav-active-box text-dark' : 'text-white' ?>"
+              href="<?= (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa') ? 'dashboard_siswa.php' : 'dashboard.php'; ?>"
+              style="font-size: 14px;">
+              <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i>Dashboard
             </a>
           </li>
 
 
 
-          <li class="navbar-brand fw-bold text-white">
-            <a class="nav-link <?= in_array($page, [
-              'master.php',
-              'mapel.php',
-              'form_mapel.php',
-              'edit_mapel.php',
-              'kelas.php',
-              'form_kelas.php',
-              'edit_kelas.php',
-              'siswa.php',
-              'form_siswa.php',
-              'edit_siswa.php',
-              'absensi.php',
-              'form_absensi.php',
-              'edit_absensi.php'
-            ]) ? 'nav-active-box text-dark' : 'text-white' ?>" href="master.php"  style="font-size: 14px;">
-              <i class="bi bi-database-fill  me-2" style="font-size: 14px;"></i>Data Master
-            </a>
-          </li>
+
+          <?php if ($_SESSION['role'] == 'admin'): ?>
+            <li class="navbar-brand fw-bold text-white">
+              <a class="nav-link <?= in_array($page, [
+                'master.php',
+                'mapel.php',
+                'form_mapel.php',
+                'edit_mapel.php',
+                'kelas.php',
+                'form_kelas.php',
+                'edit_kelas.php',
+                'siswa.php',
+                'form_siswa.php',
+                'edit_siswa.php',
+                'absensi.php',
+                'form_absensi.php',
+                'edit_absensi.php'
+              ]) ? 'nav-active-box text-dark' : 'text-white' ?>" href="master.php" style="font-size: 14px;">
+                <i class="bi bi-database-fill me-2" style="font-size: 14px;"></i>Data Master
+              </a>
+            </li>
+          <?php endif; ?>
+
 
 
 
