@@ -42,8 +42,6 @@ border-bottom-right-radius: 15px;">
         </div>
       </a>
 
-
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -55,15 +53,33 @@ border-bottom-right-radius: 15px;">
 
         <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
 
-          <li class="navbar-brand fw-bold text-white">
-            <a class="nav-link <?= in_array($page, ['dashboard.php', 'dashboard_siswa.php']) ? 'nav-active-box text-dark' : 'text-white' ?>"
-              href="<?= (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa') ? 'dashboard_siswa.php' : 'dashboard.php'; ?>"
-              style="font-size: 14px;">
-              <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i>Dashboard
+          
+          <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <li class="navbar-brand fw-bold text-white">
+              <a class="nav-link <?= $page == 'dashboard.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
+              href="dashboard.php" style="font-size: 14px;">
+              <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i> Dashboard
             </a>
           </li>
-
-
+          <?php endif; ?>
+          
+          <!-- <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa'): ?>
+            <li class="navbar-brand fw-bold text-white">
+              <a class="nav-link <?= $page == 'dashboard_siswa.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
+                href="dashboard_siswa.php" style="font-size: 14px;">
+                <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i> Dashboard
+              </a>
+            </li>
+          <?php endif; ?> -->
+          
+          <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa'): ?>
+            <li class="navbar-brand fw-bold text-white">
+              <a class="nav-link <?= $page == 'laporan.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
+                href="laporan.php" style="font-size: 14px;">
+                <i class="bi bi-folder-fill me-2" style="font-size: 14px;"></i> Laporan Absensi
+              </a>
+            </li>
+          <?php endif; ?>
 
 
           <?php if ($_SESSION['role'] == 'admin'): ?>
@@ -87,11 +103,6 @@ border-bottom-right-radius: 15px;">
               </a>
             </li>
           <?php endif; ?>
-
-
-
-
-
         </ul>
 
 

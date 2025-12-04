@@ -26,7 +26,7 @@ if ($result && $result->num_rows > 0) {
         if ($row['role'] == 'admin') {
             header("Location: dashboard.php");
         } elseif ($row['role'] == 'siswa') {
-            header("Location: dashboard_siswa.php"); // <- pakai nama file punyamu
+            header("Location: laporan.php"); // <- pakai nama file punyamu
         } else {
             header("Location: login.php?error=3");
         }
