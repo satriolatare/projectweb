@@ -14,7 +14,7 @@ if (!isset($_SESSION['email'])) {
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -53,16 +53,16 @@ border-bottom-right-radius: 15px;">
 
         <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
 
-          
+
           <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
             <li class="navbar-brand fw-bold text-white">
               <a class="nav-link <?= $page == 'dashboard.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
-              href="dashboard.php" style="font-size: 14px;">
-              <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i> Dashboard
-            </a>
-          </li>
+                href="dashboard.php" style="font-size: 14px;">
+                <i class="bi bi-bookmark-dash-fill me-2" style="font-size: 14px;"></i> Dashboard
+              </a>
+            </li>
           <?php endif; ?>
-          
+
           <!-- <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa'): ?>
             <li class="navbar-brand fw-bold text-white">
               <a class="nav-link <?= $page == 'dashboard_siswa.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
@@ -71,7 +71,7 @@ border-bottom-right-radius: 15px;">
               </a>
             </li>
           <?php endif; ?> -->
-          
+
           <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa'): ?>
             <li class="navbar-brand fw-bold text-white">
               <a class="nav-link <?= $page == 'laporan.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
@@ -107,11 +107,18 @@ border-bottom-right-radius: 15px;">
 
 
         <ul class="navbar-nav ms-auto">
-          <li class="navbar-brand d-flex align-items-center fw-bold text-white">
-            <a class="nav-link text-danger fw-bold d-flex align-items-center gap-1" href="logout.php"
-              onclick="return confirm('Apakah Anda yakin ingin logout?')">
-              <i class="bi bi-door-open text-dark"></i>Log out
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle me-2" style="font-size: 20px;"></i>
+              <span><?= isset($_SESSION['role']) ? ucfirst(htmlspecialchars($_SESSION['role'])) : 'User' ?></span>
             </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li>
+                <a class="dropdown-item" href="logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?')">
+                  <i class="bi bi-door-open me-2"></i>Log Out
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
 

@@ -1,31 +1,265 @@
+/* ===== COLOR PALETTE ===== */
+:root {
+    --primary: #2563eb;
+    --secondary: #1e40af;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+}
 
+/* ===== BASE STYLES ===== */
+html, body {
+    font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: linear-gradient(135deg, rgb(152, 162, 164), rgb(130, 140, 142)) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05) !important;
+}
+
+.nav-link {
+    transition: all 0.3s ease !important;
+}
+
+.nav-link:hover:not(.nav-active-box) {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ===== DROPDOWN STYLES ===== */
+.dropdown-menu {
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    padding: 8px 0 !important;
+}
+
+.dropdown-item {
+    padding: 12px 20px !important;
+    color: var(--text-dark) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500 !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--light) !important;
+    color: var(--primary) !important;
+}
+
+.dropdown-toggle::after {
+    display: inline-block !important;
+    margin-left: 8px !important;
+    vertical-align: 0.255em !important;
+    content: "" !important;
+    border-top: 0.3em solid white !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+    transition: transform 0.3s ease !important;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg) !important;
+}
+
+/* ===== CARD DASHBOARD ===== */
 .card-dashboard {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .card-dashboard:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+    border: 3px solid white !important;
+    border-radius: 20px !important;
 }
 
+/* ===== JUDUL TITLE ===== */
 .judul-title {
-    background: rgb(152, 162, 164);       
+    background: rgb(152, 162, 164);
     color: white;
     padding: 15px 20px;
     border-radius: 12px;
     letter-spacing: 1px;
-    text-align: center;
+    text-align: center; 
     font-weight: bold;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     margin-bottom: 25px;
+    transition: all 0.3s ease;
 }
 
+.judul-title:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
 
+/* ===== NAV ACTIVE BOX ===== */
 .nav-active-box {
     background-color: rgb(230, 235, 235) !important;
-    padding: 6px 14px !important;
+    color: #1e293b !important;
+    padding: 8px 18px !important;
     border-radius: 8px !important;
     display: inline-block !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.nav-active-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+}
+
+.nav-active-box:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+    background-color: rgb(210, 220, 220) !important;
+}
+
+.nav-active-box:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success), #059669) !important;
+    color: white !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger), #dc2626) !important;
+    color: white !important;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning), #d97706) !important;
+    color: white !important;
+}
+
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-success:hover {
+    transform: translateY(-2px) !important;
+    opacity: 0.95 !important;
+}
+
+/* ===== TABLES ===== */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table thead {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.table thead th {
+    padding: 16px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr:hover {
+    background: var(--light);
+}
+
+/* ===== FORMS ===== */
+.form-control, 
+.form-select {
+    border: 2px solid var(--border) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus, 
+.form-select:focus {
+    outline: none !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* ===== ALERTS ===== */
+.alert {
+    border-radius: 10px;
+    border-left: 4px solid;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert-success {
+    background: #ecfdf5 !important;
+    border-color: var(--success) !important;
+    color: #065f46 !important;
+}
+
+.alert-danger {
+    background: #fef2f2 !important;
+    border-color: var(--danger) !important;
+    color: #7f1d1d !important;
+}
+
+.alert-warning {
+    background: #fffbeb !important;
+    border-color: var(--warning) !important;
+    color: #78350f !important;
+}
+
+.alert-info {
+    background: #eff6ff !important;
+    border-color: var(--primary) !important;
+    color: #082f49 !important;
 }
 
 

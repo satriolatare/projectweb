@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
 <div class="container mt-4">
-    <h1 class="text-center mb-4" style="background-color: rgba(128, 128, 128, 0.3); border-radius: 20px; color: black; padding:10px;">
+    <h1 class="judul-title" class="text-center mb-4">
         Laporan Rekap Absensi Siswa
     </h1>
 
