@@ -6,29 +6,38 @@
     </h1>
 
     <?php
-    // Rekap per siswa: berapa kali hadir, izin, sakit, alpa + info tanggal
+    $where = "";
+
+    if ($_SESSION['role'] == 'siswa') {
+        $id_siswa = $_SESSION['id_siswa'];
+        $where = "WHERE absen.id_siswa = '$id_siswa'";
+    }
+
     $laporan = $conn->query("
-        SELECT 
-            siswa.nama_siswa,
-            kelas.nama_kelas,
-            mapel.nama_mapel,
-            MIN(absen.tanggal) AS tanggal_pertama,
-            MAX(absen.tanggal) AS tanggal_terakhir,
-            SUM(CASE WHEN absen.status = 'Hadir' THEN 1 ELSE 0 END) AS jml_hadir,
-            SUM(CASE WHEN absen.status = 'Izin' THEN 1 ELSE 0 END) AS jml_izin,
-            SUM(CASE WHEN absen.status = 'Sakit' THEN 1 ELSE 0 END) AS jml_sakit,
-            SUM(CASE WHEN absen.status = 'Alpa' THEN 1 ELSE 0 END) AS jml_alpa
-        FROM absen
-        INNER JOIN siswa ON absen.id_siswa = siswa.id_siswa
-        INNER JOIN kelas ON absen.id_kelas = kelas.id_kelas
-        INNER JOIN mapel ON absen.id_mapel = mapel.id_mapel
-        GROUP BY siswa.id_siswa, kelas.id_kelas, mapel.id_mapel
-        ORDER BY siswa.nama_siswa ASC, mapel.nama_mapel ASC
-    ");
+    SELECT 
+        siswa.nama_siswa,
+        kelas.nama_kelas,
+        mapel.nama_mapel,
+        MIN(absen.tanggal) AS tanggal_pertama,
+        MAX(absen.tanggal) AS tanggal_terakhir,
+
+        SUM(CASE WHEN absen.status = 'Hadir' THEN 1 ELSE 0 END) AS hadir,
+        SUM(CASE WHEN absen.status = 'Izin' THEN 1 ELSE 0 END) AS izin,
+        SUM(CASE WHEN absen.status = 'Sakit' THEN 1 ELSE 0 END) AS sakit,
+        SUM(CASE WHEN absen.status = 'Alpa' THEN 1 ELSE 0 END) AS alpa
+
+    FROM absen
+    JOIN siswa ON siswa.id_siswa = absen.id_siswa
+    JOIN kelas ON kelas.id_kelas = siswa.id_kelas
+    JOIN mapel ON mapel.id_mapel = absen.id_mapel
+    $where
+    GROUP BY siswa.id_siswa, mapel.id_mapel
+");
+
     ?>
 
 
-        <div class="card">
+    <div class="card">
         <div class="card-header">
             <strong>Data Rekap Absensi per Siswa</strong>
         </div>
@@ -61,10 +70,10 @@
                                     <td><?= $row['nama_siswa']; ?></td>
                                     <td><?= $row['nama_kelas']; ?></td>
                                     <td><?= $row['nama_mapel']; ?></td>
-                                    <td><?= (int)$row['jml_hadir']; ?></td>
-                                    <td><?= (int)$row['jml_izin']; ?></td>
-                                    <td><?= (int)$row['jml_sakit']; ?></td>
-                                    <td><?= (int)$row['jml_alpa']; ?></td>
+                                    <td><?= $row['hadir']; ?></td>
+                                    <td><?= $row['izin']; ?></td>
+                                    <td><?= $row['sakit']; ?></td>
+                                    <td><?= $row['alpa']; ?></td>
                                     <td><?= $row['tanggal_pertama']; ?></td>
                                     <td><?= $row['tanggal_terakhir']; ?></td>
                                 </tr>
