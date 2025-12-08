@@ -40,13 +40,15 @@ if ($_POST) {
     ";
 
     if ($conn->query($sql_update) === true) {
-        header("Location: absensi.php");
+        header("Location: absensi.php?id_kelas=".$id_kelas."&success=1");
         exit;
     } else {
-        echo "Gagal mengubah data";
+        header("Location: absensi.php?id_kelas=".$id_kelas."&success=0");
+        exit;
     }
 }
 ?>
+
 
 <div class="container">
     <form action="" method="POST">
