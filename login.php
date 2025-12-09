@@ -13,14 +13,14 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <meta name="theme-color" content="#712cf9" />
-    <link href="https://getbootstrap.com/docs/5.3/examples/sign-in/sign-in.css" rel="stylesheet" />
+    <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <main class="form-signin w-100 m-auto">
+<body class="text-center">
+    <main>
         <form action="login_proses.php" method="post">
-            <img class="mb-4 mx-auto d-block" src="man.png" alt="Logo" width="100" height="100">
-            <h1 class="h3 mb-3 fw-normal" align>Sign in</h1>
+            <img src="man.png" alt="Logo" width="100" height="100">
+            <h2 align="center">Sign in</h2>
             <?php if (isset($_GET['error'])): ?>
                 <?php if ($_GET['error'] == 1): ?>
                     <p class="text-danger text-center">Passsword Salah</p>
@@ -45,10 +45,9 @@
             <button class="btn btn-primary w-100 py-2" type="submit">
                 Login
             </button>
-            
+
         </form>
     </main>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
 </body>
 
 </html>
