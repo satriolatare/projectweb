@@ -1,6 +1,12 @@
-<?php include 'includes/header.php'; ?>
-
 <?php
+include 'includes/header.php';
+
+// batasi: cuma admin yang boleh di sini
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+    header("Location: dashboard_siswa.php");
+    exit;
+}
+
 $jumlah_mapel = $conn->query("SELECT COUNT(*) AS total FROM mapel")->fetch_assoc()['total'];
 $jumlah_kelas = $conn->query("SELECT COUNT(*) AS total FROM kelas")->fetch_assoc()['total'];
 $jumlah_siswa = $conn->query("SELECT COUNT(*) AS total FROM siswa")->fetch_assoc()['total'];
@@ -9,7 +15,6 @@ $jumlah_siswa = $conn->query("SELECT COUNT(*) AS total FROM siswa")->fetch_assoc
 <div class="container mt-4">
 
     <h1 class="judul-title">Dashboard</h1>
-
 
     <div class="row justify-content-center">
 
@@ -39,8 +44,6 @@ $jumlah_siswa = $conn->query("SELECT COUNT(*) AS total FROM siswa")->fetch_assoc
                 </div>
             </div>
         </div>
-
-
 
     </div>
 

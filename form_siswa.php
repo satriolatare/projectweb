@@ -17,7 +17,8 @@ $kelas = $conn->query("SELECT * FROM kelas");
             </div>
             <div class="col-md-4">
                 <label>KELAS</label>
-                <select class="form-control" name="id_kelas" id="id_kelas">
+                <select class="form-control" name="id_kelas" id="id_kelas"  required>
+                    <option value="">-- Pilih Kelas --</option>
                     <?php while ($row = $kelas->fetch_assoc()): ?>
                         <option value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
                     <?php endwhile ?>

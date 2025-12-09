@@ -18,7 +18,7 @@ if ($_POST) {
             VALUES ('$id_siswa', '$id_kelas', '$id_mapel', '$tanggal', '$status')";
 
     if ($conn->query($sql) === true) {
-        // ⬇⬇⬇ BEDANYA DI SINI: balik ke absensi.php tetapi BAWA id_kelas
+        
         header("Location: absensi.php?id_kelas=".$id_kelas."&success=1");
     } else {
         header("Location: absensi.php?id_kelas=".$id_kelas."&success=0");

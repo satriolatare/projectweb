@@ -1,39 +1,40 @@
 <?php include 'includes/header.php'; ?>
 
 <div class="container mt-4">
-    <h1 class="judul-title" class="text-center mb-4">
+    <h1 class="judul-title text-center mb-4">
         Laporan Rekap Absensi Siswa
     </h1>
 
     <?php
+    // default: admin lihat semua
     $where = "";
 
-    if ($_SESSION['role'] == 'siswa') {
+    // kalau role siswa → filter hanya data siswa itu
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'siswa') {
         $id_siswa = $_SESSION['id_siswa'];
         $where = "WHERE absen.id_siswa = '$id_siswa'";
     }
 
     $laporan = $conn->query("
-    SELECT 
-        siswa.nama_siswa,
-        kelas.nama_kelas,
-        mapel.nama_mapel,
-        MIN(absen.tanggal) AS tanggal_pertama,
-        MAX(absen.tanggal) AS tanggal_terakhir,
+        SELECT 
+            siswa.nama_siswa,
+            kelas.nama_kelas,
+            mapel.nama_mapel,
+            MIN(absen.tanggal) AS tanggal_pertama,
+            MAX(absen.tanggal) AS tanggal_terakhir,
 
-        SUM(CASE WHEN absen.status = 'Hadir' THEN 1 ELSE 0 END) AS hadir,
-        SUM(CASE WHEN absen.status = 'Izin' THEN 1 ELSE 0 END) AS izin,
-        SUM(CASE WHEN absen.status = 'Sakit' THEN 1 ELSE 0 END) AS sakit,
-        SUM(CASE WHEN absen.status = 'Alpa' THEN 1 ELSE 0 END) AS alpa
+            SUM(CASE WHEN absen.status = 'Hadir' THEN 1 ELSE 0 END) AS hadir,
+            SUM(CASE WHEN absen.status = 'Izin' THEN 1 ELSE 0 END) AS izin,
+            SUM(CASE WHEN absen.status = 'Sakit' THEN 1 ELSE 0 END) AS sakit,
+            SUM(CASE WHEN absen.status = 'Alpa' THEN 1 ELSE 0 END) AS alpa
 
-    FROM absen
-    JOIN siswa ON siswa.id_siswa = absen.id_siswa
-    JOIN kelas ON kelas.id_kelas = siswa.id_kelas
-    JOIN mapel ON mapel.id_mapel = absen.id_mapel
-    $where
-    GROUP BY siswa.id_siswa, mapel.id_mapel
-");
-
+        FROM absen
+        JOIN siswa ON siswa.id_siswa = absen.id_siswa
+        JOIN kelas ON kelas.id_kelas = siswa.id_kelas
+        JOIN mapel ON mapel.id_mapel = absen.id_mapel
+        $where
+        GROUP BY siswa.id_siswa, mapel.id_mapel
+    ");
     ?>
 
 
@@ -67,15 +68,15 @@
                                 ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $row['nama_siswa']; ?></td>
-                                    <td><?= $row['nama_kelas']; ?></td>
-                                    <td><?= $row['nama_mapel']; ?></td>
+                                    <td><?= htmlspecialchars($row['nama_siswa']); ?></td>
+                                    <td><?= htmlspecialchars($row['nama_kelas']); ?></td>
+                                    <td><?= htmlspecialchars($row['nama_mapel']); ?></td>
                                     <td><?= $row['hadir']; ?></td>
                                     <td><?= $row['izin']; ?></td>
                                     <td><?= $row['sakit']; ?></td>
                                     <td><?= $row['alpa']; ?></td>
-                                    <td><?= $row['tanggal_pertama']; ?></td>
-                                    <td><?= $row['tanggal_terakhir']; ?></td>
+                                    <td><?= htmlspecialchars($row['tanggal_pertama']); ?></td>
+                                    <td><?= htmlspecialchars($row['tanggal_terakhir']); ?></td>
                                 </tr>
                                 <?php
                             }
