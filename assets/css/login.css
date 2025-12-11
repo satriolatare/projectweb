@@ -1,28 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* KEYFRAMES */
+@keyframes background-pan {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes slide-up-fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-border {
+    from {
+        box-shadow: 0 0 8px rgba(37, 117, 252, 0.5), 0 0 0 2px rgba(37, 117, 252, 0.1);
+    }
+    to {
+        box-shadow: 0 0 12px rgba(37, 117, 252, 0.8), 0 0 0 4px rgba(37, 117, 252, 0.2);
+    }
+}
+
+
+
+
+/* BODY & BACKGROUND */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, a#ffffff 100%);
+    /* Ubah background menjadi gradient yang lebih besar dan animasi */
+    background: linear-gradient(135deg, #f0f0f5, #fafafb, #fcfcff, #f9f9f9);
+    background-size: 400% 400%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     color: #333;
+
+    animation: background-pan 15s ease infinite alternate; 
 }
 
+/* MAIN CARD */
 main {
     background: #fff;
     padding: 40px 35px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
     width: 100%;
     max-width: 380px;
     transition: all 0.3s ease;
+
+    /* Terapkan animasi slide-up-fade */
+    animation: slide-up-fade 0.8s ease-out forwards;
+    opacity: 0;
 }
 
 main:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* Sedikit lebih tinggi */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Box shadow lebih kuat saat hover */
 }
 
 main img {
@@ -39,21 +84,25 @@ main h1 {
     margin-bottom: 20px;
 }
 
+/* FORM CONTROL (INPUTS) */
 .form-control {
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 12px 15px;
-    transition: border 0.3s ease;
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Tambahkan transisi box-shadow */
 }
 
 .form-control:focus {
     border-color: #2575fc;
-    box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+    /* Terapkan animasi pulse saat focus */
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.5), 0 0 0 2px rgba(37, 117, 252, 0.1);
+    animation: pulse-border 1.5s infinite alternate; 
 }
 
+/* BUTTON */
 button.btn {
     border-radius: 10px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: linear-gradient(135deg, #a7e2ff, #2575fc);
     border: none;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -61,8 +110,9 @@ button.btn {
 }
 
 button.btn:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
-    transform: scale(1.02);
+    background: linear-gradient(135deg, #2575fc, #a7e2ff);
+    transform: scale(1.03) translateY(-2px); /* Scale dan naik sedikit */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .text-danger {
