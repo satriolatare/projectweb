@@ -19,6 +19,9 @@ $page = basename($_SERVER['PHP_SELF']);
   <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- DataTables Bootstrap 5 CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -35,9 +38,8 @@ $page = basename($_SERVER['PHP_SELF']);
         </div>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -63,6 +65,7 @@ $page = basename($_SERVER['PHP_SELF']);
             </li>
           <?php endif; ?>
 
+
           <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
             <li class="navbar-brand fw-bold text-white">
               <a class="nav-link <?= in_array($page, [
@@ -76,21 +79,29 @@ $page = basename($_SERVER['PHP_SELF']);
                 'siswa.php',
                 'form_siswa.php',
                 'edit_siswa.php',
-                'absensi.php',
-                'form_absensi.php',
-                'edit_absensi.php'
-              ]) ? 'nav-active-box text-dark' : 'text-white' ?>"
-              href="master.php" style="font-size: 14px;">
+              ]) ? 'nav-active-box text-dark' : 'text-white' ?>" href="master.php" style="font-size: 14px;">
                 <i class="bi bi-database-fill me-2" style="font-size: 14px;"></i>Data Master
               </a>
             </li>
           <?php endif; ?>
+
+          <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <li class="navbar-brand fw-bold text-white">
+              <a class="nav-link <?= $page == 'absensi.php' ? 'nav-active-box text-dark' : 'text-white' ?>"
+                href="absensi.php" style="font-size: 14px;">
+                <i class="bi bi-file-earmark-plus-fill" style="font-size: 14px;"></i> Absensi
+              </a>
+            </li>
+          <?php endif; ?>
+
         </ul>
+
+
 
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold text-white" href="#"
-              id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold text-white" href="#" id="userDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle me-2" style="font-size: 20px;"></i>
               <span><?= isset($_SESSION['role']) ? ucfirst(htmlspecialchars($_SESSION['role'])) : 'Akun' ?></span>
             </a>
@@ -102,12 +113,13 @@ $page = basename($_SERVER['PHP_SELF']);
                     <i class="bi bi-people-fill me-2"></i>Akun Siswa
                   </a>
                 </li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
               <?php endif; ?>
 
               <li>
-                <a class="dropdown-item" href="logout.php"
-                  onclick="return confirm('Apakah Anda yakin ingin logout?')">
+                <a class="dropdown-item" href="logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?')">
                   <i class="bi bi-door-open me-2"></i>Log Out
                 </a>
               </li>

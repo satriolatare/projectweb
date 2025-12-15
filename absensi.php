@@ -41,7 +41,7 @@ if ($id_kelas_terpilih != '') {
 	<?php if ($id_kelas_terpilih == ''): ?>
 		<!-- =========================
 			MODE PILIH KELAS (KARTU)
-	        ========================== -->
+			========================== -->
 		<p class="mb-3">Silakan pilih kelas terlebih dahulu:</p>
 
 		<div class="row">
@@ -77,51 +77,52 @@ if ($id_kelas_terpilih != '') {
 			</div>
 			<div>
 				<a href="absensi.php" class="btn btn-outline-secondary btn-sm">
-					Pilih kelas lain
+					Kembali
 				</a>
 			</div>
 		</div>
 
-		<table class="table table-bordered">
-			<tr align="center" class="table-secondary">
-				<th>Nama Siswa</th>
-				<th>Kelas</th>
-				<th>Mata Pelajaran</th>
-				<th>Tanggal</th>
-				<th>Status</th>
-				<th>Action</th>
-			</tr>
+		<table id="tabelAbsensi" class="table table-striped table-bordered align-middle" style="width:100%">
 
-			<?php if ($result && $result->num_rows > 0): ?>
-				<?php while ($row = $result->fetch_assoc()): ?>
-					<tr>
-						<td><?= $row['nama_siswa']; ?></td>
-						<td><?= $row['nama_kelas']; ?></td>
-						<td><?= $row['nama_mapel']; ?></td>
-						<td><?= $row['tanggal']; ?></td>
-						<td><?= $row['status']; ?></td>
-						<td align="center">
-							<a href="edit_absensi.php?id=<?= $row['id_absensi']; ?>" class="btn btn-warning btn-sm"><i
-                                class="bi bi-pencil-square"></i></a>
-							<a href="hapus_absensi.php?id=<?= $row['id_absensi']; ?>" class="btn btn-danger btn-sm"
-								onclick="return confirm('Yakin hapus data?')"><i class="bi bi-trash"></i>
-								
-							</a>
-						</td>
-					</tr>
-				<?php endwhile; ?>
-			<?php else: ?>
+			<thead class="table-secondary text-center">
 				<tr>
-					<td colspan="6" align="center">
-						Belum ada data absensi untuk kelas ini.
-					</td>
+					<th>Nama Siswa</th>
+					<th>Kelas</th>
+					<th>Mata Pelajaran</th>
+					<th>Tanggal</th>
+					<th>Status</th>
+					<th>Action</th>
 				</tr>
-			<?php endif; ?>
+			</thead>
+
+			<tbody>
+				<?php if ($result && $result->num_rows > 0): ?>
+					<?php while ($row = $result->fetch_assoc()): ?>
+						<tr>
+							<td><?= $row['nama_siswa']; ?></td>
+							<td><?= $row['nama_kelas']; ?></td>
+							<td><?= $row['nama_mapel']; ?></td>
+							<td><?= $row['tanggal']; ?></td>
+							<td><?= $row['status']; ?></td>
+							<td class="text-center">
+								<a href="edit_absensi.php?id=<?= $row['id_absensi']; ?>" class="btn btn-warning btn-sm">
+									<i class="bi bi-pencil-square"></i>
+								</a>
+								<a href="hapus_absensi.php?id=<?= $row['id_absensi']; ?>" class="btn btn-danger btn-sm"
+									onclick="return confirm('Yakin hapus data?')">
+									<i class="bi bi-trash"></i>
+								</a>
+							</td>
+						</tr>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</tbody>
 		</table>
+
 
 		<div>
 			<a class="btn btn-primary" href="form_absensi.php?id_kelas=<?= $id_kelas_terpilih; ?>">
-				Tambah Data <i class="bi bi-plus-lg"></i>
+				Input Absensi <i class="bi bi-plus-lg"></i>
 			</a>
 		</div>
 

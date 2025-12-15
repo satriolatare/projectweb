@@ -60,7 +60,7 @@ $mapel = $conn->query("SELECT * FROM mapel ORDER BY nama_mapel ASC");
 
             <div class="col-md-4">
                 <label>Tanggal</label>
-                <input type="date" name="tanggal" id="tanggal" class="form-control" required>
+                <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?=date('Y-m-d');?>" required>
             </div>
 
             <div class="col-md-4 mt-3">
